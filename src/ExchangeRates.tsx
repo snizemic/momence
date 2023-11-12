@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 export function ExchangeRates() {
 	const { isLoading, error, data } = useQuery('exchangeRates', async () => {
-		const response = await fetch(`${window.location.href}api`);
+		const response = await fetch('/api');
 
 		if (response.status !== 200) {
 			throw new Error('Network response was not ok');
