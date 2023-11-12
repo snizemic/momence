@@ -1,24 +1,38 @@
-import { useQuery } from 'react-query';
+import Table from 'antd/es/table';
+import { Content } from 'antd/es/layout/layout';
+import Alert from 'antd/es/alert/Alert';
+import Row from 'antd/es/grid/row';
+import Col from 'antd/es/grid/col';
+import { useExchangeRates } from './useExchangeRates';
+import { getColumns, getDataSource } from './exchangeRatesUtils';
+import { Layout } from './Layout';
+import { ExchangeRateForm } from './ExchangeRateForm';
 
 export function ExchangeRates() {
-	const { isLoading, error, data } = useQuery('exchangeRates', async () => {
-		const response = await fetch('/api');
+	const { isLoading, error, data } = useExchangeRates();
 
-		if (response.status !== 200) {
-			throw new Error('Network response was not ok');
-		}
+	const { declaredAt, exchangeRates } = data || {};
+	const columns = getColumns();
+	const dataSource = getDataSource(exchangeRates);
 
-		const data = await response.text();
-		const lines = data.split('\n');
-		lines.shift();
-		console.log(lines.map(line => line.split('|')));
-
-		return data;
-	});
-
-	if (isLoading) return <div>Loading...</div>;
-
-	if (error) return <div>Something went wrong</div>;
-
-	return <div>{data}</div>;
+	return (
+		<Layout>
+			<Content>
+				<Row gutter={[0, 24]}>
+					{error && (
+						<Col span={24}>
+							<Alert type={'error'} message={error.message} />
+						</Col>
+					)}
+					<Col span={24}>
+						<ExchangeRateForm />
+					</Col>
+					{declaredAt && <Col span={24}>The displayed exchange rates are valid for {declaredAt}</Col>}
+					<Col span={24}>
+						<Table loading={isLoading} columns={columns} dataSource={dataSource} pagination={false} />
+					</Col>
+				</Row>
+			</Content>
+		</Layout>
+	);
 }
