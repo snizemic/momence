@@ -1,0 +1,3 @@
+/api/_ https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt:splat 200
+/_ /index.html 200
+/\* /index.html 404
