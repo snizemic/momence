@@ -25,7 +25,7 @@ export function ExchangeRates() {
 						</Col>
 					)}
 					<Col span={24}>
-						<ExchangeRateForm />
+						<ExchangeRateForm exchangeRates={data?.exchangeRates} />
 					</Col>
 					{declaredAt && <Col span={24}>The displayed exchange rates are valid for {declaredAt}</Col>}
 					<Col span={24}>

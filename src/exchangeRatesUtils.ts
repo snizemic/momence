@@ -4,6 +4,12 @@ import { ExchangeRate } from './fetchExchangeRates';
 export function getColumns(): ColumnsType<ExchangeRate> {
 	return [
 		{
+			title: 'Code',
+			dataIndex: 'code',
+			key: 'code',
+			sorter: (a, b) => a.code.localeCompare(b.code),
+		},
+		{
 			title: 'Country',
 			dataIndex: 'country',
 			key: 'country',
@@ -19,12 +25,6 @@ export function getColumns(): ColumnsType<ExchangeRate> {
 			title: 'Amount',
 			dataIndex: 'amount',
 			key: 'amount',
-		},
-		{
-			title: 'Code',
-			dataIndex: 'code',
-			key: 'code',
-			sorter: (a, b) => a.code.localeCompare(b.code),
 		},
 		{
 			title: 'Rate',
