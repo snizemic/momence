@@ -3,9 +3,9 @@ import { Content } from 'antd/es/layout/layout';
 import Alert from 'antd/es/alert/Alert';
 import Row from 'antd/es/grid/row';
 import Col from 'antd/es/grid/col';
-import { useExchangeRates } from './useExchangeRates';
+import { useExchangeRates } from '../hooks/useExchangeRates';
 import { getColumns, getDataSource } from './exchangeRatesUtils';
-import { Layout } from './Layout';
+import { Layout } from '../styles/Layout';
 import { ExchangeRateForm } from './ExchangeRateForm';
 
 export function ExchangeRates() {

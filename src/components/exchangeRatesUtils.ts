@@ -1,5 +1,5 @@
 import { ColumnsType } from 'antd/es/table';
-import { ExchangeRate } from './fetchExchangeRates';
+import { ExchangeRate } from '../utils/fetchExchangeRates';
 
 export function getColumns(): ColumnsType<ExchangeRate> {
 	return [
