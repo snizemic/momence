@@ -47,8 +47,12 @@ export function ExchangeRateForm({ exchangeRates }: ExchangeRateFormProps) {
 	useEffect(
 		() => {
 			if (exchangeRates) {
-				// set form initial value
-				form.setFieldValue('code', exchangeRates.find(exchangeRate => exchangeRate.code === 'EUR')?.code);
+				const currentCode = form.getFieldValue('code');
+
+				if (!currentCode) {
+					// set form initial value
+					form.setFieldValue('code', exchangeRates.find(exchangeRate => exchangeRate.code === 'EUR')?.code);
+				}
 			}
 		},
 		[form, exchangeRates], // prettier-ignore

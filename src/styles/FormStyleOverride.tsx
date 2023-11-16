@@ -15,6 +15,10 @@ export const FormStyleOverride = createGlobalStyle`
 					}
 				}
 			}
+
+			&:nth-child(6) {
+				min-width: 150px;
+			}
 		}
 	}
 `;

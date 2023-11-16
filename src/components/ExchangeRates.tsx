@@ -3,6 +3,7 @@ import { Content } from 'antd/es/layout/layout';
 import Alert from 'antd/es/alert/Alert';
 import Row from 'antd/es/grid/row';
 import Col from 'antd/es/grid/col';
+import Card from 'antd/es/card';
 import { useExchangeRates } from '../hooks/useExchangeRates';
 import { getColumns, getDataSource } from './exchangeRatesUtils';
 import { Layout } from '../styles/Layout';
@@ -25,7 +26,9 @@ export function ExchangeRates() {
 						</Col>
 					)}
 					<Col span={24}>
-						<ExchangeRateForm exchangeRates={data?.exchangeRates} />
+						<Card size={'small'}>
+							<ExchangeRateForm exchangeRates={data?.exchangeRates} />
+						</Card>
 					</Col>
 					{declaredAt && <Col span={24}>The displayed exchange rates are valid for {declaredAt}</Col>}
 					<Col span={24}>
