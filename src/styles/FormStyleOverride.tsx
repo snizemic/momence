@@ -19,6 +19,25 @@ export const FormStyleOverride = createGlobalStyle`
 			&:nth-child(6) {
 				min-width: 150px;
 			}
+
+			@media screen and (max-width: 767px) {
+				&:nth-child(1),
+				&:nth-child(4) {
+					width: 100%;
+				}
+
+				&:nth-child(2),
+				&:nth-child(5) {
+					width: 50%;
+				}
+
+				&:nth-child(3),
+				&:nth-child(6) {
+					width: calc(50% - 16px);
+					margin-right: 0;
+					min-width: unset;
+				}
+			}
 		}
 	}
 `;

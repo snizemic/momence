@@ -7,6 +7,7 @@ export function getColumns(): ColumnsType<ExchangeRate> {
 			title: 'Code',
 			dataIndex: 'code',
 			key: 'code',
+			fixed: 'left',
 			sorter: (a, b) => a.code.localeCompare(b.code),
 		},
 		{
@@ -30,6 +31,7 @@ export function getColumns(): ColumnsType<ExchangeRate> {
 			title: 'Rate',
 			dataIndex: 'rate',
 			key: 'rate',
+			fixed: 'right',
 		},
 	];
 }
