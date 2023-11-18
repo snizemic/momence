@@ -27,12 +27,12 @@ export function ExchangeRates() {
 					)}
 					<Col span={24}>
 						<Card size={'small'}>
-							<ExchangeRateForm exchangeRates={data?.exchangeRates} />
+							<ExchangeRateForm exchangeRates={exchangeRates} />
 						</Card>
 					</Col>
 					{declaredAt && <Col span={24}>The displayed exchange rates are valid for {declaredAt}</Col>}
 					<Col span={24}>
-						<Table loading={isLoading} columns={columns} dataSource={dataSource} pagination={false} />
+						<Table loading={isLoading} scroll={{ x: true }} columns={columns} dataSource={dataSource} pagination={false} />
 					</Col>
 				</Row>
 			</Content>
